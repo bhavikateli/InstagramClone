@@ -1,8 +1,6 @@
 package com.bhavikateli.instagramclone;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
 
-import org.parceler.Parcels;
-
 import java.util.List;
 
-public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
 
     private Context context;
     private List<Post> posts;
 
-    public PostsAdapter(Context context, List<Post> posts) {
+    public ProfileAdapter(Context context, List<Post> posts) {
         this.context = context;
         this.posts = posts;
     }
@@ -38,8 +34,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       Post post =  posts.get(position);
-       holder.bind(post);
+        Post post =  posts.get(position);
+        holder.bind(post);
 
     }
 
@@ -61,7 +57,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ivImage = itemView.findViewById(R.id.ivImagePost);
         }
 
-        public void bind(final Post post) {
+        public void bind(Post post) {
             //bind the post data to view elements
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
@@ -69,15 +65,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             if(image != null) {
                 Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
             }
-            tvUsername.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.i("PostsAdapter", "username clicked inside Posts Adapter" );
-                    Intent i = new Intent(context, DetailsActivity.class);
-                    i.putExtra("post", Parcels.wrap(post));
-                    context.startActivity(i);
-                }
-            });
         }
     }
+
 }

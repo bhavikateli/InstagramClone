@@ -21,7 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
-import com.bhavikateli.instagramclone.LoginActivity;
 import com.bhavikateli.instagramclone.Post;
 import com.bhavikateli.instagramclone.R;
 import com.parse.ParseException;
@@ -42,7 +41,6 @@ public class ComposeFragment extends Fragment {
     public Button btnCaptureImage;
     public ImageView ivPostImage;
     public Button btnSubmit;
-    public Button btnLogOut;
     public String photoFileName = "photo.jpg";
     private File photoFile;
 
@@ -60,12 +58,9 @@ public class ComposeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //Pulling out references
         etDescription = view.findViewById(R.id.etDescription);
-        btnCaptureImage = view.findViewById(R.id.tbnCapturePicture);
+        btnCaptureImage = view.findViewById(R.id.btnCapturePicture);
         ivPostImage = view.findViewById(R.id.ivImagePost);
         btnSubmit = view.findViewById(R.id.btnSubmit);
-        btnCaptureImage = view.findViewById(R.id.btnLogOut);
-
-        btnLogOut = view.findViewById(R.id.btnLogOut);
 
         // queryPosts();
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -89,14 +84,6 @@ public class ComposeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 launchCamera();
-            }
-        });
-
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ParseUser.logOut();
-                goLoginActivity();
             }
         });
 
@@ -175,11 +162,6 @@ public class ComposeFragment extends Fragment {
 
             }
         });
-    }
-
-    private void goLoginActivity() {
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        startActivity(i);
     }
 
 
