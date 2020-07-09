@@ -18,6 +18,13 @@ public class Post extends ParseObject {
     public static final String KEY_IMAGE = "image";
     public static final String KEY_USER = "user";
     public static final String KEY_CREATED_AT = "createdAt";
+    public static final String KEY_PROFILE_IMAGE = "profileImage";
+    ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+    public static final String KEY_LIKE = "like";
+    public static final String KEY_COMMENT_ARRAY = "comments";
+    public static final String KEY_LOCATION = "location";
+
+
 
     public String getDescription() {
         return getString(KEY_DESCRIPTION);
@@ -42,6 +49,23 @@ public class Post extends ParseObject {
     public void setUser(ParseUser user) {
         put(KEY_USER, user);
     }
+
+    public ParseFile getProfileImage(){
+        return getParseUser(KEY_USER).getParseFile(KEY_PROFILE_IMAGE);
+    }
+
+    public void setLike(int like){
+        put(KEY_LIKE, like);
+    }
+
+    public int getLike(){
+        return getInt(KEY_LIKE);
+    }
+
+    public String getLocation(){
+        return getString(KEY_LOCATION);
+    }
+
 
 
 

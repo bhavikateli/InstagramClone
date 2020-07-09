@@ -2,6 +2,7 @@ package com.bhavikateli.instagramclone;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.parse.ParseFile;
 import org.parceler.Parcels;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
@@ -48,26 +51,60 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         return posts.size();
     }
 
+    // Clean all elements of the recycler
+    public void clear() {
+        posts.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Post> list) {
+        posts.addAll(list);
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView tvUsername;
         private ImageView ivImage;
         private TextView tvDescription;
+        ImageView ivProfilePicture;
+        TextView tvTimeStamp;
+        TextView tvLocation;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDescription = itemView.findViewById(R.id.tvDescriptionPost);
             tvUsername = itemView.findViewById(R.id.tvUsernamePost);
             ivImage = itemView.findViewById(R.id.ivImagePost);
+            ivProfilePicture = itemView.findViewById(R.id.ivProfilePicture);
+            tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
+            tvLocation = itemView.findViewById(R.id.tvLocation);
         }
 
         public void bind(final Post post) {
             //bind the post data to view elements
             tvDescription.setText(post.getDescription());
+
             tvUsername.setText(post.getUser().getUsername());
+            tvUsername.setPaintFlags(tvUsername.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
+            tvLocation.setText(post.getLocation());
+            tvLocation.setPaintFlags(tvLocation.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
+
+            tvTimeStamp.setText(ParseRelativeDate.getRelativeTimeAgo(post.getCreatedAt().toString()));
+
+
             ParseFile image = post.getImage();
             if(image != null) {
                 Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
+            }
+            ParseFile profileImage = post.getProfileImage();
+            if(profileImage != null) {
+                Glide.with(context).load(post.getProfileImage().getUrl())
+                        .transform(new RoundedCornersTransformation(40, 25))
+                        .into(ivProfilePicture);
             }
             tvUsername.setOnClickListener(new View.OnClickListener() {
                 @Override

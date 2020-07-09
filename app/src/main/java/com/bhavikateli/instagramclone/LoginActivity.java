@@ -1,11 +1,13 @@
 package com.bhavikateli.instagramclone;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     public EditText etPassword;
     public Button btnLogin;
     public Button btnSignUp;
+    public TextView tvForgotPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnSignUp = findViewById(R.id.btnSignUp);
+        tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        tvForgotPassword.setPaintFlags(tvForgotPassword.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

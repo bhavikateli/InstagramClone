@@ -1,6 +1,7 @@
 package com.bhavikateli.instagramclone;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
 
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
 
@@ -49,21 +52,43 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         private TextView tvUsername;
         private ImageView ivImage;
         private TextView tvDescription;
+        private ImageView ivProfilePicture;
+        private TextView tvTimeStamp;
+        private TextView tvLocation;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDescription = itemView.findViewById(R.id.tvDescriptionPost);
             tvUsername = itemView.findViewById(R.id.tvUsernamePost);
             ivImage = itemView.findViewById(R.id.ivImagePost);
+            ivProfilePicture = itemView.findViewById(R.id.ivProfilePicture);
+            tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
+            tvLocation = itemView.findViewById(R.id.tvLocation);
         }
 
         public void bind(Post post) {
             //bind the post data to view elements
             tvDescription.setText(post.getDescription());
+
             tvUsername.setText(post.getUser().getUsername());
+            tvUsername.setPaintFlags(tvUsername.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
+            tvLocation.setText(post.getLocation());
+            tvLocation.setPaintFlags(tvLocation.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
+
+            tvTimeStamp.setText(ParseRelativeDate.getRelativeTimeAgo(post.getCreatedAt().toString()));
+
+
             ParseFile image = post.getImage();
             if(image != null) {
                 Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
+            }
+            ParseFile profileImage = post.getProfileImage();
+            if(profileImage != null) {
+                Glide.with(context).load(post.getProfileImage().getUrl())
+                        .transform(new RoundedCornersTransformation(40, 25))
+                        .into(ivProfilePicture);
             }
         }
     }

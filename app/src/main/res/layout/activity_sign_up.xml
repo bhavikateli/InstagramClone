@@ -122,11 +122,33 @@
 
     <Button
         android:id="@+id/btnSubmit"
+        android:layout_width="99dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/ivProfilePreview"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="16dp"
+        android:text="submit" />
+
+    <Button
+        android:id="@+id/btnCaptureProfilePicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/tvConfirmEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="326dp"
-        android:text="submit" />
+        android:layout_marginTop="38dp"
+        android:text="Take Profile Picture" />
+
+    <ImageView
+        android:id="@+id/ivProfilePreview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/btnCaptureProfilePicture"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="10dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </RelativeLayout>
