@@ -10,15 +10,15 @@
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_height="35dp"
+        android:layout_below="@+id/imageView2"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="83dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="65dp"
         android:layout_toEndOf="@+id/tvUsername"
+        android:background="@drawable/my_border"
         android:ems="10"
-        android:hint="enter username"
         android:inputType="textPersonName"
         android:textSize="16sp"
         tools:layout_editor_absoluteX="115dp"
@@ -27,31 +27,31 @@
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_below="@+id/etUsername"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="67dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="65dp"
         android:layout_toEndOf="@+id/tvPassword"
+        android:background="@drawable/my_border"
         android:ems="10"
-        android:hint="enter password "
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="113dp"
         tools:layout_editor_absoluteY="103dp" />
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="202dp"
+        android:layout_height="35dp"
         android:layout_below="@+id/etPassword"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="67dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="65dp"
         android:layout_toEndOf="@+id/tvEmail"
+        android:background="@drawable/my_border"
         android:ems="10"
-        android:hint="enter email "
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="113dp"
         tools:layout_editor_absoluteY="103dp" />
@@ -59,15 +59,15 @@
     <EditText
         android:id="@+id/etConfirmEmail"
         android:layout_width="151dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:layout_below="@+id/etEmail"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="13dp"
         android:layout_marginTop="18dp"
-        android:layout_marginEnd="70dp"
+        android:layout_marginEnd="65dp"
         android:layout_toEndOf="@+id/tvConfirmEmail"
+        android:background="@drawable/my_border"
         android:ems="10"
-        android:hint="enter email "
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="113dp"
         tools:layout_editor_absoluteY="103dp" />
@@ -76,10 +76,10 @@
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="59dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="28dp"
         android:text="Username:"
         android:textSize="21sp"
         android:textStyle="bold" />
@@ -88,10 +88,10 @@
         android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUsername"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
         android:text="Password: "
         android:textSize="21sp"
         android:textStyle="bold" />
@@ -102,8 +102,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvPassword"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="25dp"
         android:text="Email: "
         android:textSize="21sp"
         android:textStyle="bold" />
@@ -114,7 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvEmail"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="25dp"
         android:text="Confirm Email: "
         android:textSize="21sp"
@@ -122,23 +122,27 @@
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="99dp"
-        android:layout_height="43dp"
-        android:layout_below="@+id/ivProfilePreview"
+        android:layout_width="116dp"
+        android:layout_height="31dp"
+        android:layout_below="@+id/btnGalleryPicture"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="141dp"
-        android:layout_marginTop="16dp"
-        android:text="submit" />
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="15dp"
+        android:background="#0E0B0B"
+        android:text="submit"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnCaptureProfilePicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="168dp"
+        android:layout_height="35dp"
         android:layout_below="@+id/tvConfirmEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:text="Take Profile Picture" />
+        android:layout_marginTop="37dp"
+        android:background="#5EAFF1"
+        android:text="Take Profile Picture"
+        android:textColor="#FFFFFF" />
 
     <ImageView
         android:id="@+id/ivProfilePreview"
@@ -150,5 +154,27 @@
         android:layout_marginStart="158dp"
         android:layout_marginTop="10dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnGalleryPicture"
+        android:layout_width="237dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/ivProfilePreview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:background="#5EAFF1"
+        android:text="Choose picture from gallery"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="297dp"
+        android:layout_height="87dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="6dp"
+        app:srcCompat="@drawable/instagram_png5" />
 
 </RelativeLayout>

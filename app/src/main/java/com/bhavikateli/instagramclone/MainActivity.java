@@ -11,14 +11,17 @@ import androidx.fragment.app.FragmentManager;
 import com.bhavikateli.instagramclone.fragments.ComposeFragment;
 import com.bhavikateli.instagramclone.fragments.PostsFragment;
 import com.bhavikateli.instagramclone.fragments.ProfileFragment;
+import com.bhavikateli.instagramclone.fragments.UserFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PostsAdapter.ProfileImageListener {
 
     public static final String TAG = "MainAcitivty";
 
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private BottomNavigationView bottomNavigationView;
+    private Fragment fragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                Fragment fragment;
+
                 switch (menuItem.getItemId()) {
                     case R.id.action_compose:
                         fragment = new ComposeFragment();
@@ -49,5 +52,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         bottomNavigationView.setSelectedItemId(R.id.action_home);
+    }
+
+    @Override
+    public void switchFragment(String fragmentName, Post post) {
+
+        fragment = new UserFragment(post.getUser());
+        fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
+
     }
 }

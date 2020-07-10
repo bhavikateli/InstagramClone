@@ -87,7 +87,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             ParseFile profileImage = post.getProfileImage();
             if(profileImage != null) {
                 Glide.with(context).load(post.getProfileImage().getUrl())
-                        .transform(new RoundedCornersTransformation(40, 25))
+                        .transform(new RoundedCornersTransformation(80, 30))
                         .into(ivProfilePicture);
             }
         }

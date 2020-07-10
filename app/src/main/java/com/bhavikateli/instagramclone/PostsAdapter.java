@@ -24,6 +24,10 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
 
+    public interface ProfileImageListener {
+        void switchFragment(String fragmentName, Post post);
+    }
+
     private Context context;
     private List<Post> posts;
 
@@ -71,6 +75,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         ImageView ivProfilePicture;
         TextView tvTimeStamp;
         TextView tvLocation;
+        TextView tvLikeCount;
+        ImageView ivLike;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +86,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ivProfilePicture = itemView.findViewById(R.id.ivProfilePicture);
             tvTimeStamp = itemView.findViewById(R.id.tvTimeStamp);
             tvLocation = itemView.findViewById(R.id.tvLocation);
+            tvLikeCount = itemView.findViewById(R.id.tvLikeCount);
+            ivLike = itemView.findViewById(R.id.ivLike);
         }
 
         public void bind(final Post post) {
@@ -92,8 +100,9 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvLocation.setText(post.getLocation());
             tvLocation.setPaintFlags(tvLocation.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
 
-
             tvTimeStamp.setText(ParseRelativeDate.getRelativeTimeAgo(post.getCreatedAt().toString()));
+
+            tvLikeCount.setText(post.getLike());
 
 
             ParseFile image = post.getImage();
@@ -113,6 +122,28 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                     Intent i = new Intent(context, DetailsActivity.class);
                     i.putExtra("post", Parcels.wrap(post));
                     context.startActivity(i);
+                }
+            });
+
+            ivProfilePicture.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+//
+                    ((MainActivity)context).switchFragment("UserFragment", post);
+                }
+            });
+
+            ivLike.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String likes = post.getLike();
+                    Log.i("PostsAdapter", "this is now the likes: " + likes);
+                    int intLike = Integer.parseInt(likes);
+                    intLike++;
+                    likes = String.valueOf(intLike);
+                    post.setLike(likes);
+                    Log.i("PostsAdapter", "this is now the likes: " + post.getLike());
+                    post.saveInBackground();
                 }
             });
         }

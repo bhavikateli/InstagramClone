@@ -1,5 +1,7 @@
 package com.bhavikateli.instagramclone;
 
+import android.util.Log;
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
@@ -54,13 +56,20 @@ public class Post extends ParseObject {
         return getParseUser(KEY_USER).getParseFile(KEY_PROFILE_IMAGE);
     }
 
-    public void setLike(int like){
+    public ParseFile getProfileImageUser(){
+        return getParseFile(KEY_PROFILE_IMAGE);
+    }
+
+    public void setLike(String like){
+        Log.i("Post class", "inside setlike");
         put(KEY_LIKE, like);
     }
 
-    public int getLike(){
-        return getInt(KEY_LIKE);
+    public String getLike(){
+        Log.i("Post class", "inside getLike");
+        return getString(KEY_LIKE);
     }
+
 
     public String getLocation(){
         return getString(KEY_LOCATION);

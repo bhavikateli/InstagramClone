@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.bhavikateli.instagramclone.EndlessRecyclerViewScrollListener;
 import com.bhavikateli.instagramclone.Post;
 import com.bhavikateli.instagramclone.PostsAdapter;
 import com.bhavikateli.instagramclone.R;
@@ -33,10 +34,13 @@ public class PostsFragment extends Fragment {
     protected PostsAdapter adapter;
     protected List<Post> allPosts;
     SwipeRefreshLayout swipeContainer;
+    private EndlessRecyclerViewScrollListener scrollListener;
+
 
     public PostsFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,8 +76,22 @@ public class PostsFragment extends Fragment {
         // 4. set adapter on the recycler view
         rvposts.setAdapter(adapter);
         // 5. set the layout manager on the recycler view
-        rvposts.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        rvposts.setLayoutManager(layoutManager);
         queryPosts();
+
+        scrollListener = new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                Log.i(TAG, "onLoadMore: " + page);
+                loadMoreData();
+            }
+        };
+
+        rvposts.addOnScrollListener(scrollListener);
+    }
+
+    private void loadMoreData() {
     }
 
     private void queryPosts() {
