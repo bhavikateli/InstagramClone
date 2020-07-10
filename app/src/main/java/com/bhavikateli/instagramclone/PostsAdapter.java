@@ -77,6 +77,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         TextView tvLocation;
         TextView tvLikeCount;
         ImageView ivLike;
+        ImageView ivComment;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +89,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             tvLocation = itemView.findViewById(R.id.tvLocation);
             tvLikeCount = itemView.findViewById(R.id.tvLikeCount);
             ivLike = itemView.findViewById(R.id.ivLike);
+            ivComment = itemView.findViewById(R.id.ivComment);
+
         }
 
         public void bind(final Post post) {
@@ -122,6 +125,17 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                     Intent i = new Intent(context, DetailsActivity.class);
                     i.putExtra("post", Parcels.wrap(post));
                     context.startActivity(i);
+                }
+            });
+
+            ivComment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.i("PostsAdapter", "username clicked comments " );
+                    Intent i = new Intent(context, CommentsActivity.class);
+                    i.putExtra("postComment", Parcels.wrap(post));
+                    context.startActivity(i);
+
                 }
             });
 

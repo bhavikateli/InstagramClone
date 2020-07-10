@@ -59,12 +59,10 @@ public class UsersPostAdapter extends RecyclerView.Adapter<UsersPostAdapter.View
                 public void onClick(View view) {
                     int position = getAdapterPosition();
 
-
                 }
             });
 
         }
-
         public void bind(Post post) {
 
             ParseFile image = post.getImage();

@@ -10,7 +10,9 @@
         android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="619dp"
-        android:layout_above="@id/bottomNavigation" >
+        android:layout_above="@id/bottomNavigation"
+        android:layout_below ="@id/toolbar"
+        >
 
 
     </FrameLayout>

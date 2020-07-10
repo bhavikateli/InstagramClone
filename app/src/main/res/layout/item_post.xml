@@ -36,13 +36,13 @@
         android:id="@+id/tvDescriptionPost"
         android:layout_width="346dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivLike"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="45dp"
         android:textColor="#131111"
         android:textSize="14.5sp"
         tools:text="yeah so this yeah so this yeah so this yeah so this yeah so this yeah so this " />
@@ -63,9 +63,9 @@
         android:layout_width="35dp"
         android:layout_height="27dp"
         android:layout_below="@+id/ivImagePost"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="13dp"
         android:layout_marginTop="9dp"
-        android:layout_toEndOf="@+id/tvLikeCount"
+        android:layout_toEndOf="@+id/ivLike"
         app:srcCompat="@drawable/ufi_comment" />
 
     <ImageView
@@ -94,8 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvDescriptionPost"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="5dp"
         android:textSize="13sp"
         tools:text="10 hours ago" />
 
@@ -114,11 +114,24 @@
         android:id="@+id/tvLikeCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivImagePost"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="16dp"
-        android:layout_toEndOf="@+id/ivLike"
+        android:layout_below="@+id/ivLike"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="4dp"
         android:textColor="#151212"
+        android:textStyle="bold"
         tools:text="50" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivComment"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/tvLikeCount"
+        android:text="Likes"
+        android:textColor="#100C0C"
+        android:textStyle="bold" />
 
 </RelativeLayout>
