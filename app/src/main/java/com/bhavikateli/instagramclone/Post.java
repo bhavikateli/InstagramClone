@@ -56,10 +56,6 @@ public class Post extends ParseObject {
         return getParseUser(KEY_USER).getParseFile(KEY_PROFILE_IMAGE);
     }
 
-    public ParseFile getProfileImageUser(){
-        return getParseFile(KEY_PROFILE_IMAGE);
-    }
-
     public void setLike(String like){
         Log.i("Post class", "inside setlike");
         put(KEY_LIKE, like);
@@ -70,7 +66,10 @@ public class Post extends ParseObject {
         return getString(KEY_LIKE);
     }
 
+    public void setLocation(String location){
+        put(KEY_LOCATION, location);
 
+    }
     public String getLocation(){
         return getString(KEY_LOCATION);
     }

@@ -14,8 +14,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Enter Caption"
@@ -35,7 +35,7 @@
         android:textColor="#FFFFFF" />
 
     <ImageView
-        android:id="@+id/ivImagePost"
+        android:id="@+id/ivImagePostDetails"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_below="@+id/btnCapturePicture"
@@ -49,10 +49,10 @@
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivImagePost"
+        android:layout_below="@+id/btnGalleryPicture"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="107dp"
+        android:layout_marginTop="26dp"
         android:layout_marginEnd="158dp"
         android:background="#190E0E"
         android:text="submit"
@@ -62,11 +62,22 @@
         android:id="@+id/btnGalleryPicture"
         android:layout_width="262dp"
         android:layout_height="36dp"
-        android:layout_below="@+id/ivImagePost"
+        android:layout_below="@+id/etLocation"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="19dp"
         android:background="#5EAFF1"
         android:text="Choose from Gallery"
         android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/etLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivImagePostDetails"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="Enter Location"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

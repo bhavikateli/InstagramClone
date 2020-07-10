@@ -45,8 +45,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       Post post =  posts.get(position);
-       holder.bind(post);
+        Post post =  posts.get(position);
+        holder.bind(post);
 
     }
 
@@ -115,7 +115,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                         .transform(new RoundedCornersTransformation(40, 25))
                         .into(ivProfilePicture);
             }
-            tvUsername.setOnClickListener(new View.OnClickListener() {
+            ivImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.i("PostsAdapter", "username clicked inside Posts Adapter" );
@@ -136,6 +136,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             ivLike.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    ivLike.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_vector_heart));
                     String likes = post.getLike();
                     Log.i("PostsAdapter", "this is now the likes: " + likes);
                     int intLike = Integer.parseInt(likes);
