@@ -96,14 +96,14 @@ public class ComposeFragment extends Fragment {
             }
         });
 
-        /*
+
         btnGalleryPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onPickPhoto(view);
             }
         });
-        */
+
 
     }
 

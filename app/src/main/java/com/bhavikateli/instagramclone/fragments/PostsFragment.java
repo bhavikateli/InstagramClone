@@ -26,7 +26,7 @@ import java.util.List;
 
 
 
-public class PostsFragment extends Fragment {
+public class PostsFragment extends Fragment{
 
     final public static String TAG = "PostsFragment";
 
@@ -97,7 +97,7 @@ public class PostsFragment extends Fragment {
     private void queryPosts() {
         ParseQuery<Post> query = ParseQuery.getQuery(Post.class);
         query.include(Post.KEY_USER);
-        query.setLimit(20);
+        query.setLimit(100);
         query.addDescendingOrder(Post.KEY_CREATED_AT);
         query.findInBackground(new FindCallback<Post>() {
             @Override
@@ -116,4 +116,5 @@ public class PostsFragment extends Fragment {
             }
         });
     }
+
 }
