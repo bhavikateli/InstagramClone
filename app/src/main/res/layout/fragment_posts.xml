@@ -11,7 +11,9 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeContainer"
         android:layout_width="403dp"
-        android:layout_height="723dp">
+        android:layout_height="723dp"
+        android:layout_marginTop="20dp"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPosts"

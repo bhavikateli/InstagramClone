@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements PostsAdapter.Prof
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("");
 
         //Pulling out references
         bottomNavigationView = findViewById(R.id.bottomNavigation);
